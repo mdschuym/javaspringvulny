@@ -14,4 +14,6 @@ RUN cd /javavulny \
 WORKDIR /app
 
 ENV PWD=/app
+RUN useradd -U -u 1000 appuser && chown -R 1000:1000 /app
+USER 1000
 CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/java-spring-vuly-0.1.0.jar"]
